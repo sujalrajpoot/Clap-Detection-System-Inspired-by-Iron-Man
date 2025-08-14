@@ -177,7 +177,7 @@ This project is licensed under the **Apache License**.
 
 * **Iron Man** for the inspiration ✨
 * [PyTorch](https://pytorch.org/) for the deep learning framework
-
+* Pretrained Model download [Here](https://drive.google.com/file/d/1o57-J436_OmcOgA-Vt3e3ontPPqA4gu_/view?usp=sharing)
 ---
 
 ### If you want, I can also **add a J.A.R.V.I.S.-style ASCII art** to the top of the README so it looks more cinematic. That would really sell the Iron Man vibe.

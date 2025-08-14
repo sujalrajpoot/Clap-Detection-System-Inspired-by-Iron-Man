@@ -16,21 +16,40 @@ This project uses a **Convolutional Neural Network (CNN)** to detect whether an 
 
 ## 📂 Project Structure
 ```
-
-clap\_detection/
-│
-├── data/                     # Training & testing audio files
-├── model/                    # Saved PyTorch model
-├── notebooks/                # Jupyter notebooks for experiments
-├── src/
-│   ├── dataset.py             # Dataset loader & preprocessing
-│   ├── model.py               # CNN model architecture
-│   ├── train.py               # Training loop
-│   ├── detect.py              # Real-time detection script
-│   └── utils.py               # Helper functions
-├── requirements.txt           # Dependencies
-└── README.md                  # Project documentation
-
+📂 Clap-Detection-System-Inspired-by-Iron-Man
+├── ClapDetector.py
+├── LICENSE
+├── README.md
+├── audio_classifier.pth
+├── audio_inference.py
+├── cnn_sound_model.py
+├── data
+│   ├── background_noise
+│   │   ├── bg_0.wav
+│   │   ├── bg_1.wav
+│   │   ├── bg_2.wav
+│   │   ├── bg_3.wav
+│   │   ├── bg_4.wav
+│   │   ├── bg_5.wav
+│   │   ├── bg_6.wav
+│   │   ├── bg_7.wav
+│   │   ├── bg_8.wav
+│   │   └── bg_9.wav
+│   └── claps
+│       ├── clap_0.wav
+│       ├── clap_1.wav
+│       ├── clap_2.wav
+│       ├── clap_3.wav
+│       ├── clap_4.wav
+│       ├── clap_5.wav
+│       ├── clap_6.wav
+│       ├── clap_7.wav
+│       ├── clap_8.wav
+│       └── clap_9.wav
+├── load_dataset.py
+├── record.py
+├── requirements.txt
+└── trainer.py
 ````
 
 ---
@@ -46,8 +65,8 @@ clap\_detection/
 ## 📦 Installation
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/clap-detection.git
-cd clap-detection
+git clone https://github.com/sujalrajpoot/Clap-Detection-System-Inspired-by-Iron-Man.git
+cd Clap-Detection-System-Inspired-by-Iron-Man
 
 # Install dependencies
 pip install -r requirements.txt
@@ -59,10 +78,8 @@ pip install -r requirements.txt
 
 * **Python 3.8+**
 * **PyTorch**
-* **Librosa**
 * **Sounddevice**
 * **NumPy**
-* **Matplotlib**
 
 ---
 
@@ -77,18 +94,50 @@ A **3-layer CNN** with:
 
 ---
 
-## 🎯 Usage
+## 📜 Instructions
 
-### Train the Model
+### 1️⃣ Record Training Data
+
+Run the following to record **claps** and **background noise** for training:
 
 ```bash
-python src/train.py --epochs 20 --batch-size 32
+python record.py
 ```
 
-### Run Real-time Detection
+This will save the audio files inside the `data/` folder.
+
+---
+
+### 2️⃣ Train the Neural Network
+
+After recording, train the CNN model:
 
 ```bash
-python src/detect.py
+python trainer.py
+```
+
+The trained model will save the trained model as `audio_classifier.pth`.
+
+---
+
+### 3️⃣ Run Real-time Clap Detection
+
+To start detecting claps in real-time:
+
+```bash
+python ClapDetector.py
+```
+
+If a clap is detected, it will print:
+
+```
+👏 97%
+```
+
+Otherwise, it will print:
+
+```
+No Clap Detected
 ```
 
 ---
@@ -120,7 +169,7 @@ You can customize the detection trigger to:
 
 ## 📜 License
 
-This project is licensed under the **MIT License**.
+This project is licensed under the **Apache License**.
 
 ---
 
@@ -128,13 +177,7 @@ This project is licensed under the **MIT License**.
 
 * **Iron Man** for the inspiration ✨
 * [PyTorch](https://pytorch.org/) for the deep learning framework
-* [Librosa](https://librosa.org/) for audio processing
 
 ---
 
-```
-
----
-
-If you want, I can also **add a J.A.R.V.I.S.-style ASCII art** to the top of the README so it looks more cinematic. That would really sell the Iron Man vibe.
-```
+### If you want, I can also **add a J.A.R.V.I.S.-style ASCII art** to the top of the README so it looks more cinematic. That would really sell the Iron Man vibe.
